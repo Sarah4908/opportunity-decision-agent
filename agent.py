@@ -122,8 +122,8 @@ def run():
     opportunities = extract_all(emails)
     print(f"📬 Found {len(opportunities)} opportunities\n")
     
-    # Step 3 — Send to Gemini for reasoning
-    print("🧠 Sending to Gemini for reasoning...\n")
+    # Step 3 — Send to Groq for reasoning
+    print("🧠 Sending to Groq for reasoning...\n")
     prompt = build_prompt(profile, opportunities)
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
