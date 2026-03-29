@@ -1,4 +1,4 @@
-# 🎯 Opportunity Decision Agent
+#  Opportunity Decision Agent
 
 > An AI-powered agent that reads your Gmail, evaluates career opportunities against your student profile, and pushes prioritized decisions directly into a Notion database — all via a custom MCP server.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 What It Does
+##  What It Does
 
 Students get overwhelmed by a flood of internship emails, hackathon invites, scholarship deadlines, and job postings. This agent cuts through the noise:
 
@@ -20,7 +20,7 @@ The result: you open Notion every morning and know exactly what to act on.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Gmail API (or mock_emails.py)
@@ -50,7 +50,7 @@ This lets any MCP-compatible AI client (Claude Desktop, etc.) orchestrate the fu
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 opportunity-decision-agent/
@@ -71,7 +71,7 @@ opportunity-decision-agent/
 
 ---
 
-## ⚙️ Setup
+##  Setup
 
 ### Prerequisites
 
@@ -164,7 +164,7 @@ A browser window will open for OAuth on first run. A `token.json` will be saved 
 
 ---
 
-## 🚀 Running Modes
+##  Running Modes
 
 ### Standalone (recommended for first run)
 
@@ -172,7 +172,7 @@ A browser window will open for OAuth on first run. A `token.json` will be saved 
 python agent.py
 ```
 
-### MCP server (for Claude Desktop or other MCP clients)
+### MCP server 
 
 ```bash
 python mcp_server.py
@@ -188,32 +188,9 @@ python mcp_server.py
 
 > ⚠️ Make sure you've run `python agent.py` at least once to set up your profile before starting the MCP server. The server doesn't support the interactive profile onboarding prompt.
 
-### Connecting to Claude Desktop
+      
 
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "opportunity-agent": {
-      "command": "python",
-      "args": ["/absolute/path/to/mcp_server.py"],
-      "env": {
-        "GROQ_API_KEY": "...",
-        "NOTION_API_KEY": "...",
-        "OPPORTUNITIES_DB_ID": "...",
-        "PROFILE_DB_ID": "..."
-      }
-    }
-  }
-}
-```
-
-Then in Claude Desktop: *"Check my latest opportunities and update my Notion dashboard."*
-
----
-
-## 🔍 How Notion MCP Is Used
+##  How Notion MCP Is Used
 
 Notion is the **central hub** of this entire workflow — not just an output sink:
 
@@ -225,7 +202,7 @@ Notion becomes the persistent, human-readable output of an otherwise fully autom
 
 ---
 
-## 📊 Example Output
+##  Example Output
 
 **Terminal:**
 ```
@@ -233,7 +210,7 @@ Notion becomes the persistent, human-readable output of an otherwise fully autom
 ✅ Profile loaded: ML Engineer | Intern Hunting
 📬 Found 5 opportunities
 
-🧠 Sending to LLM for reasoning...
+🧠 Sending to Groq for reasoning...
 📊 Writing decisions to Notion...
 
   ✅ Written: Amazon OA Invitation → Apply (High priority)
@@ -261,7 +238,7 @@ Notion becomes the persistent, human-readable output of an otherwise fully autom
 
 ---
 
-## 🧩 Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -273,7 +250,7 @@ Notion becomes the persistent, human-readable output of an otherwise fully autom
 
 ---
 
-## ⚠️ Known Limitations
+##  Known Limitations
 
 - Opportunities database is fully cleared and rewritten on each run — no deduplication yet
 - Email extraction uses heuristic keyword matching; complex HTML emails may not parse cleanly
@@ -282,7 +259,7 @@ Notion becomes the persistent, human-readable output of an otherwise fully autom
 
 ---
 
-## 📄 License
+##  License
 
 MIT — fork, adapt, and build on top of this freely.
 
